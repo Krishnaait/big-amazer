@@ -539,3 +539,4 @@ All pages follow this structure:
 ## BUG FIXES
 
 - [x] Fix nested anchor tag error on homepage (Link component wrapping anchor tags)
+- [x] Find and fix remaining nested anchor tags in Header or other components
