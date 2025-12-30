@@ -845,3 +845,13 @@ Latest commit: Add Railway database setup and environment variables documentatio
 - [x] Fix asset loading configuration
 - [x] Test production build locally
 - [ ] Verify fix works on Railway deployment
+
+
+## RAILWAY URL CONSTRUCTION ERROR FIX
+
+- [x] Analyze TypeError: Failed to construct 'URL': Invalid URL
+- [x] Check tRPC client configuration for production
+- [x] Investigate API endpoint URL construction
+- [x] Fix environment variable handling for production
+- [x] Test fix and verify production deployment
+- [x] Made Manus OAuth optional - falls back to /login when OAuth vars not configured
