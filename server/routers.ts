@@ -295,6 +295,45 @@ export const appRouter = router({
           message: "Successfully joined contest!",
         };
       }),
+    
+    getLeaderboard: publicProcedure
+      .input(z.object({ contestId: z.number() }))
+      .query(async ({ input }) => {
+        const db = await import("./db").then(d => d.getDb());
+        if (!db) return { success: true, contest: null, entries: [] };
+        
+        const { contests, contestEntries, userTeams, users } = await import("../drizzle/schema");
+        const { eq, desc } = await import("drizzle-orm");
+        
+        // Get contest details
+        const contestResult = await db.select().from(contests).where(eq(contests.id, input.contestId)).limit(1);
+        if (contestResult.length === 0) {
+          throw new Error("Contest not found");
+        }
+        
+        const contest = contestResult[0];
+        
+        // Get all entries with team and user info
+        const entries = await db
+          .select({
+            id: contestEntries.id,
+            points: contestEntries.points,
+            rank: contestEntries.rank,
+            teamName: userTeams.name,
+            userName: users.name,
+          })
+          .from(contestEntries)
+          .leftJoin(userTeams, eq(contestEntries.teamId, userTeams.id))
+          .leftJoin(users, eq(contestEntries.userId, users.id))
+          .where(eq(contestEntries.contestId, input.contestId))
+          .orderBy(desc(contestEntries.points));
+        
+        return {
+          success: true,
+          contest,
+          entries,
+        };
+      }),
   }),
 });
 

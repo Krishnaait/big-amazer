@@ -268,6 +268,12 @@
 
 ## PART 6: TEAM CREATION FLOW (UI AND API)
 
+- [x] Create team creation wizard page
+- [x] Add player selection with role filtering
+- [x] Implement captain/vice-captain selection
+- [x] Add credit budget tracking (100 credits)
+- [x] Create team mutation with validation
+
 ### Step 6.1: Team Creation tRPC Procedure
 - [ ] Create teams router in `server/routers.ts`
 - [ ] Add createTeam procedure (protected):
@@ -327,6 +333,12 @@
 
 ## PART 7: CONTEST SYSTEM (API, PAGES, AND SEEDING)
 
+- [x] Create contests page
+- [x] Display contest cards with details
+- [x] Add join contest functionality
+- [x] Show contest status and progress
+- [x] Implement contest seeding
+
 ### Step 7.1: Contest List tRPC Procedure
 - [ ] Add contests router in `server/routers.ts`
 - [ ] Add getContests procedure:
@@ -376,7 +388,13 @@
 
 ---
 
-## PART 8: LIVE SCORE SYSTEM AND AUTOMATED CONTEST SYNC
+#### PART 8: LIVE SCORING AND AUTOMATED SYNC
+
+- [x] Create live score page
+- [x] Implement 30-second auto-refresh
+- [x] Display leaderboard with rankings
+- [x] Show contest details and status
+- [x] Add manual refresh buttonONTEST SYNC
 
 ### Step 8.1: Live Score Page
 - [ ] Create `client/src/pages/LiveScore.tsx`

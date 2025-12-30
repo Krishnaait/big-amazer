@@ -70,11 +70,18 @@ export default function Matches() {
                           <p className="text-gray-500 text-xs mb-4">
                             {new Date(match.dateTimeGMT).toLocaleString()}
                           </p>
-                          <Link href={`/create-team/${match.id}`}>
-                            <Button size="sm" className="w-full bg-[#FF6B35] hover:bg-[#ff5722] text-white">
-                              Create Team
-                            </Button>
-                          </Link>
+                          <div className="flex gap-2">
+                            <Link href={`/create-team/${match.id}`} className="flex-1">
+                              <Button asChild size="sm" className="w-full bg-[#FF6B35] hover:bg-[#ff5722] text-white">
+                                <span>Create Team</span>
+                              </Button>
+                            </Link>
+                            <Link href={`/contests/${match.id}`} className="flex-1">
+                              <Button asChild size="sm" variant="outline" className="w-full border-gray-600 text-gray-300">
+                                <span>Contests</span>
+                              </Button>
+                            </Link>
+                          </div>
                         </CardContent>
                       </Card>
                     ))}

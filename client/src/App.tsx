@@ -17,6 +17,9 @@ import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import FairPlay from "./pages/FairPlay";
 import ResponsibleGaming from "./pages/ResponsibleGaming";
+import CreateTeam from "./pages/CreateTeam";
+import Contests from "./pages/Contests";
+import LiveScore from "./pages/LiveScore";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -33,9 +36,11 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/terms"} component={Terms} />
       <Route path={"/privacy"} component={Privacy} />
-      <Route path={"/fair-play"} component={FairPlay} />
-      <Route path={"/responsible-gaming"} component={ResponsibleGaming} />
-      <Route path={"/404"} component={NotFound} />
+      <Route path={"/fair-play"} component={FairPlay} />      <Route path={" /responsible-gaming"} component={ResponsibleGaming} />
+      <Route path="/create-team/:matchId" component={CreateTeam} />
+      <Route path="/contests/:matchId" component={Contests} />
+      <Route path="/live-score/:contestId" component={LiveScore} />
+      <Route path={"/ 404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
