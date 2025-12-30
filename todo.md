@@ -875,3 +875,18 @@ Latest commit: Add Railway database setup and environment variables documentatio
 - [x] Test production deployment with fix - Homepage loads perfectly!
 - [x] Cricket API integration working (84 matches loaded)
 - [x] No errors in server logs
+
+
+## REMOVE ALL MANUS CONNECTIONS
+
+- [x] Scan entire codebase for Manus references
+- [x] Remove Manus OAuth SDK and imports
+- [x] Remove Manus environment variables
+- [x] Remove Manus API integrations
+- [x] Remove Manus types and interfaces
+- [x] Remove Manus from server initialization
+- [x] Remove Manus from context setup
+- [x] Cross-check all files for remaining Manus references
+- [x] Remove vite-plugin-manus-runtime from package.json
+- [x] Update ManusDialog component to LoginDialog
+- [x] Test application without Manus - SUCCESS! Homepage loads perfectly, no errors
