@@ -540,3 +540,4 @@ All pages follow this structure:
 
 - [x] Fix nested anchor tag error on homepage (Link component wrapping anchor tags)
 - [x] Find and fix remaining nested anchor tags in Header or other components
+- [x] Check and fix Footer component for nested anchor tags

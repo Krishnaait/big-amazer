@@ -24,23 +24,23 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-3">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about">
-                  <a className="text-gray-400 hover:text-[#FF6B35] transition-colors">About Us</a>
+                <Link href="/about" className="text-gray-400 hover:text-[#FF6B35] transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="/how-to-play">
-                  <a className="text-gray-400 hover:text-[#FF6B35] transition-colors">How to Play</a>
+                <Link href="/how-to-play" className="text-gray-400 hover:text-[#FF6B35] transition-colors">
+                  How to Play
                 </Link>
               </li>
               <li>
-                <Link href="/faq">
-                  <a className="text-gray-400 hover:text-[#FF6B35] transition-colors">FAQ</a>
+                <Link href="/faq" className="text-gray-400 hover:text-[#FF6B35] transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
-                  <a className="text-gray-400 hover:text-[#FF6B35] transition-colors">Contact Us</a>
+                <Link href="/contact" className="text-gray-400 hover:text-[#FF6B35] transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -51,23 +51,23 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-3">Legal</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/terms">
-                  <a className="text-gray-400 hover:text-[#FF6B35] transition-colors">Terms of Service</a>
+                <Link href="/terms" className="text-gray-400 hover:text-[#FF6B35] transition-colors">
+                  Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/privacy">
-                  <a className="text-gray-400 hover:text-[#FF6B35] transition-colors">Privacy Policy</a>
+                <Link href="/privacy" className="text-gray-400 hover:text-[#FF6B35] transition-colors">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/fair-play">
-                  <a className="text-gray-400 hover:text-[#FF6B35] transition-colors">Fair Play Policy</a>
+                <Link href="/fair-play" className="text-gray-400 hover:text-[#FF6B35] transition-colors">
+                  Fair Play Policy
                 </Link>
               </li>
               <li>
-                <Link href="/responsible-gaming">
-                  <a className="text-gray-400 hover:text-[#FF6B35] transition-colors">Responsible Gaming</a>
+                <Link href="/responsible-gaming" className="text-gray-400 hover:text-[#FF6B35] transition-colors">
+                  Responsible Gaming
                 </Link>
               </li>
             </ul>
