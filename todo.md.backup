@@ -16,9 +16,9 @@
 
 ### Step 1.3: Environment Variables Setup
 - [x] Add CRIC_API_KEY to environment
-- [x] Add NEXTAUTH_SECRET equivalent for session management (JWT_SECRET exists)
-- [x] Add CRON_SECRET for automated sync
-- [x] Document all environment variables
+- [ ] Add NEXTAUTH_SECRET equivalent for session management
+- \[ \] Add CRON_SECRET for automated sync
+- \[ \] Document all environment variables
 
 ### Step 1.4: Base Styles Configuration
 - [x] Update `client/src/index.css` with Big Amazer color scheme
@@ -33,7 +33,7 @@
 ### Step 1.5: Root Layout Configuration
 - [x] Update `client/src/App.tsx` with routes
 - [x] Configure ThemeProvider to dark theme
-- [x] Import and add Toaster component from react-hot-toast
+- \[ \] Import and add Toaster component from react-hot-toast
 - [x] Add proper TypeScript types
 - [x] Test layout renders without errors
 
@@ -55,14 +55,14 @@
 - [x] email (varchar 320, unique, not null)
 - [x] password (varchar 255, not null) - ADD THIS
 - [x] createdAt (timestamp, default now) - EXISTS
-- [x] Remove openId requirement for custom auth (openId is optional)
+- [ ] Remove openId requirement for custom auth
 - [x] Keep role enum (user, admin)
 
 **User Teams Table** (NEW):
 - [x] id (primary key, auto-increment)
 - [x] userId (int, foreign key to users.id, not null)
 - [x] matchId (varchar 255, not null)
-- [x] name (varchar 255, not null) - team name
+- [ ] name (varchar 255, not null) - team name
 - [x] captainId (varchar 255, not null)
 - [x] viceCaptainId (varchar 255, not null)
 - [x] totalCreditsUsed (decimal 10,2, not null)
@@ -77,7 +77,7 @@
 **Contests Table** (NEW):
 - [x] id (primary key, auto-increment)
 - [x] matchId (varchar 255, not null)
-- [x] name (varchar 255, not null)
+- [ ] name (varchar 255, not null)
 - [x] entryFee (decimal 10,2, not null)
 - [x] prizePool (decimal 10,2, not null)
 - [x] maxEntries (int, not null)
@@ -95,21 +95,21 @@
 - [x] createdAt (timestamp, default now)
 
 - [x] Add proper foreign key relationships
-- [x] Add indexes for frequently queried fields
+- \[ \] Add indexes for frequently queried fields
 
 ### Step 2.3: Database Connection
 - [x] Verify `server/db.ts` exists and exports getDb()
 - [x] Update database helper functions for fantasy cricket
 - [x] Add getUserByEmail function
 - [x] Add createUser function with bcrypt hashing
-- [x] Test connection with simple query
+- \[ \] Test connection with simple query
 
 ### Step 2.4: Database Initialization
 - [x] Create tRPC procedure for database initialization
-- [x] Add logic to create all 5 tables if not exist (handled by drizzle migrations)
-- [x] Add ALTER TABLE for missing columns (handled by drizzle migrations)
+- [ ] Add logic to create all 5 tables if not exist
+- [ ] Add ALTER TABLE for missing columns
 - [x] Add error handling with try-catch
-- [x] Return success/failure response
+- [ ] Return success/failure response
 
 ### Step 2.5: Generate and Apply Migration
 - [x] Run `pnpm db:push` command
@@ -178,7 +178,7 @@
 - [x] Add getMatches procedure:
   - [x] Accept optional matchId input
   - [x] Call getMatches() function
-  - [x] If matchId: return single match
+  - [ ] If matchId: return single match
   - [x] If no matchId: filter and categorize (live, upcoming, completed)
   - [x] Sort upcoming by date ascending
   - [x] Sort completed by date descending
@@ -214,7 +214,7 @@
 
 ### Step 5.2: Footer Component
 - [x] Create `client/src/components/Footer.tsx`
-- [x] Add Big Amazer company information:
+- [ ] Add Big Amazer company information:
   - [x] Company Name: BIG AMAZER TEAM (OPC) PRIVATE LIMITED
   - [x] Brand: Big Amazer
   - [x] Tagline: Fantasy Sports
@@ -237,7 +237,7 @@
   - [x] Subtitle: "Create your dream cricket team and compete for glory"
   - [x] Orange gradient background
 - [x] Add match sections (live, upcoming, completed)
-- [x] Add featured contests section
+- \[ \] Add featured contests section
 - [x] Apply Big Amazer branding throughout
 - [x] Test homepage rendering
 
@@ -248,20 +248,20 @@
 - [x] Add user stats section
 - [x] Add my teams section
 - [x] Add my contests section
-- [x] Apply Big Amazer styling
+- \[ \] Apply Big Amazer styling
 - [x] Test dashboard rendering
 
 ### Step 5.5: Matches Page
 - [x] Create `client/src/pages/Matches.tsx`
 - [x] Import Header and Footer
-- [x] Add page title: "Matches"
+- \[ \] Add page title: "Matches"
 - [x] Use trpc.cricket.getMatches.useQuery()
 - [x] Display live matches section
 - [x] Display upcoming matches section
 - [x] Display completed matches section
 - [x] Add match cards with team names, scores, status
 - [x] Add "Create Team" button for upcoming matches
-- [x] Apply Big Amazer styling
+- \[ \] Apply Big Amazer styling
 - [x] Test matches page
 
 ---
@@ -275,59 +275,59 @@
 - [x] Create team mutation with validation
 
 ### Step 6.1: Team Creation tRPC Procedure
-- [x] Create teams router in `server/routers.ts`
-- [x] Add createTeam procedure (protected):
-  - [x] Validate user is authenticated
-  - [x] Accept input: matchId, name, players[], captainId, viceCaptainId, totalCreditsUsed
-  - [x] Validate: exactly 11 players
-  - [x] Validate: captain and vice-captain provided
-  - [x] Validate: team name provided
-  - [x] Insert team record into userTeams table
-  - [x] Insert player records into teamPlayers table
-  - [x] Return team ID on success
+- [ ] Create teams router in `server/routers.ts`
+- [ ] Add createTeam procedure (protected):
+  - [ ] Validate user is authenticated
+  - [ ] Accept input: matchId, name, players[], captainId, viceCaptainId, totalCreditsUsed
+  - [ ] Validate: exactly 11 players
+  - [ ] Validate: captain and vice-captain provided
+  - [ ] Validate: team name provided
+  - [ ] Insert team record into userTeams table
+  - [ ] Insert player records into teamPlayers table
+  - [ ] Return team ID on success
   - [x] Add error handling
 
 ### Step 6.2: Team Creation Page (Multi-Step Wizard)
-- [x] Create `client/src/pages/CreateTeam.tsx`
-- [x] Define Player interface (pid, name, role, credits, teamName)
-- [x] Create state variables:
-  - [x] squad: Player[]
-  - [x] selectedPlayers: Player[]
-  - [x] teamName: string
-  - [x] captain: string | null
-  - [x] viceCaptain: string | null
-  - [x] step: 1 | 2 | 3
-- [x] Fetch squad data using trpc.cricket.getMatchSquad.useQuery()
-- [x] Assign random credits (7-10) to each player
+- [ ] Create `client/src/pages/CreateTeam.tsx`
+- \[ \] Define Player interface (pid, name, role, credits, teamName)
+- \[ \] Create state variables:
+  - [ ] squad: Player[]
+  - [ ] selectedPlayers: Player[]
+  - [ ] teamName: string
+  - [ ] captain: string | null
+  - [ ] viceCaptain: string | null
+  - [ ] step: 1 | 2 | 3
+- \[ \] Fetch squad data using trpc.cricket.getMatchSquad.useQuery()
+- [ ] Assign random credits (7-10) to each player
 
 **Step 1: Player Selection**
-- [x] Display squad list grouped by role
-- [x] Add selection controls (checkboxes)
-- [x] Show selected count (X/11)
-- [x] Show credits used/remaining
-- [x] Validate: exactly 11 players
-- [x] Add Next button
+- \[ \] Display squad list grouped by role
+- \[ \] Add selection controls (checkboxes)
+- \[ \] Show selected count (X/11)
+- \[ \] Show credits used/remaining
+- [ ] Validate: exactly 11 players
+- [ ] Add Next button
 
 **Step 2: Captain & Vice-Captain Selection**
 - [x] Display selected 11 players
-- [x] Add captain selection (radio buttons)
-- [x] Add vice-captain selection (radio buttons)
-- [x] Validate: captain and vice-captain different
-- [x] Add Previous and Next buttons
+- [ ] Add captain selection (radio buttons)
+- [ ] Add vice-captain selection (radio buttons)
+- [ ] Validate: captain and vice-captain different
+- [ ] Add Previous and Next buttons
 
 **Step 3: Team Preview & Submission**
 - [x] Display team name input
 - [x] Display all selected players
-- [x] Highlight captain (orange badge)
-- [x] Highlight vice-captain (golden badge)
+- [ ] Highlight captain (orange badge)
+- [ ] Highlight vice-captain (golden badge)
 - [x] Show total credits used
-- [x] Add Previous and Submit buttons
+- [ ] Add Previous and Submit buttons
 - [x] Use trpc.teams.createTeam.useMutation()
 - [x] Show success/error toast
 - [x] Redirect to contests page on success
 
-- [x] Apply Big Amazer styling throughout
-- [x] Test complete team creation flow
+- \[ \] Apply Big Amazer styling throughout
+- [ ] Test complete team creation flow
 
 ---
 
@@ -340,51 +340,51 @@
 - [x] Implement contest seeding
 
 ### Step 7.1: Contest List tRPC Procedure
-- [x] Add contests router in `server/routers.ts`
-- [x] Add getContests procedure:
-  - [x] Accept optional matchId filter
-  - [x] Query contests from database
-  - [x] Return contests array with count
+- [ ] Add contests router in `server/routers.ts`
+- [ ] Add getContests procedure:
+  - [ ] Accept optional matchId filter
+  - [ ] Query contests from database
+  - [ ] Return contests array with count
   - [x] Add error handling
 
 ### Step 7.2: Contest Seeding tRPC Procedure
-- [x] Add seedContests procedure:
+- [ ] Add seedContests procedure:
   - [x] Accept matchId input (required)
-  - [x] Define 3 sample contests:
-    - [x] Mega Contest: (adapted for free platform) entryFee 10, prizePool 1000, maxEntries 100
-    - [x] Head to Head: (adapted for free platform) entryFee 50, prizePool 90, maxEntries 2
-    - [x] Winner Takes All: (adapted for free platform) entryFee 25, prizePool 225, maxEntries 10
-  - [x] Insert contests into database
+  - [ ] Define 3 sample contests:
+    - [ ] Mega Contest: entryFee 10, prizePool 1000, maxEntries 100
+    - [ ] Head to Head: entryFee 50, prizePool 90, maxEntries 2
+    - [ ] Winner Takes All: entryFee 25, prizePool 225, maxEntries 10
+  - [ ] Insert contests into database
   - [x] Return success message with count
   - [x] Add error handling
 
 ### Step 7.3: Join Contest tRPC Procedure
-- [x] Add joinContest procedure (protected):
-  - [x] Validate user is authenticated
+- [ ] Add joinContest procedure (protected):
+  - [ ] Validate user is authenticated
   - [ ] Accept input: contestId, teamId
-  - [x] Find contest by ID
-  - [x] Validate contest exists
-  - [x] Validate contest not full (currentEntries < maxEntries)
-  - [x] Create contest entry record
-  - [x] Increment currentEntries counter
+  - [ ] Find contest by ID
+  - [ ] Validate contest exists
+  - [ ] Validate contest not full (currentEntries < maxEntries)
+  - [ ] Create contest entry record
+  - [ ] Increment currentEntries counter
   - [x] Return success message
   - [x] Add error handling
 
 ### Step 7.4: Match Contests Page
-- [x] Create `client/src/pages/Contests.tsx`
-- [x] Define Contest interface
+- [ ] Create `client/src/pages/Contests.tsx`
+- [ ] Define Contest interface
 - [x] Use trpc.contests.getContests.useQuery({ matchId })
 - [x] Display contests in grid layout
 - [x] Create contest cards showing:
-  - [x] Contest name
-  - [x] Entry fee (orange text)
-  - [x] Prize pool (golden text)
-  - [x] Spots filled progress bar
-  - [x] Join button (orange background)
+  - [ ] Contest name
+  - [ ] Entry fee (orange text)
+  - [ ] Prize pool (golden text)
+  - [ ] Spots filled progress bar
+  - [ ] Join button (orange background)
 - [x] Use trpc.contests.joinContest.useMutation()
 - [x] Show success/error toast
-- [x] Apply Big Amazer styling
-- [x] Test contests page
+- \[ \] Apply Big Amazer styling
+- [ ] Test contests page
 
 ---
 
@@ -397,19 +397,19 @@
 - [x] Add manual refresh buttonONTEST SYNC
 
 ### Step 8.1: Live Score Page
-- [x] Create `client/src/pages/LiveScore.tsx`
-- [x] Define Match interface (t1, t2, s, ar)
-- [x] Create state for match and autoRefresh
+- [ ] Create `client/src/pages/LiveScore.tsx`
+- [ ] Define Match interface (t1, t2, s, ar)
+- [ ] Create state for match and autoRefresh
 - [x] Use trpc.cricket.getMatches.useQuery({ matchId })
-- [x] Display match information:
+- \[ \] Display match information:
   - [ ] Team names (white text, bold)
   - [ ] Current score (large orange text)
-  - [x] Match status (light gray text)
-- [x] Add auto-refresh toggle button
-- [x] Implement 30-second auto-refresh with setInterval
-- [x] Clear interval on cleanup
-- [x] Apply Big Amazer styling
-- [x] Test live score page with auto-refresh
+  - [ ] Match status (light gray text)
+- [ ] Add auto-refresh toggle button
+- [ ] Implement 30-second auto-refresh with setInterval
+- \[ \] Clear interval on cleanup
+- \[ \] Apply Big Amazer styling
+- [ ] Test live score page with auto-refresh
 
 ### Step 8.2: Contest Sync tRPC Procedure
 - [x] Add syncContests procedure:
@@ -441,64 +441,64 @@
 All pages follow this structure:
 - [x] Import Header and Footer components
 - [x] Add page title
-- [x] Add page-specific content
+- [ ] Add page-specific content
 - [x] Apply Big Amazer dark theme styling
-- [x] Include company details where appropriate
+- [ ] Include company details where appropriate
 
 **About Page**
-- [x] Create `client/src/pages/About.tsx`
-- [x] Add Big Amazer company mission
-- [x] Add company registration details
-- [x] Add team information
+- [ ] Create `client/src/pages/About.tsx`
+- [ ] Add Big Amazer company mission
+- [ ] Add company registration details
+- [ ] Add team information
 
 **How to Play Page**
-- [x] Create `client/src/pages/HowToPlay.tsx`
-- [x] Add step-by-step guide
-- [x] Add team creation instructions
-- [x] Add contest joining instructions
-- [x] Add scoring explanation
+- [ ] Create `client/src/pages/HowToPlay.tsx`
+- [ ] Add step-by-step guide
+- [ ] Add team creation instructions
+- [ ] Add contest joining instructions
+- [ ] Add scoring explanation
 
 **FAQ Page**
-- [x] Create `client/src/pages/FAQ.tsx`
-- [x] Add common questions and answers
-- [x] Add accordion/expandable sections
+- [ ] Create `client/src/pages/FAQ.tsx`
+- [ ] Add common questions and answers
+- [ ] Add accordion/expandable sections
 
 **Contact Page**
-- [x] Create `client/src/pages/Contact.tsx`
-- [x] Add contact form
-- [x] Add company address and details
+- [ ] Create `client/src/pages/Contact.tsx`
+- [ ] Add contact form
+- [ ] Add company address and details
 
 **Terms of Service Page**
-- [x] Create `client/src/pages/Terms.tsx`
-- [x] Add terms and conditions
-- [x] Include company registration info
+- [ ] Create `client/src/pages/Terms.tsx`
+- [ ] Add terms and conditions
+- [ ] Include company registration info
 
 **Privacy Policy Page**
-- [x] Create `client/src/pages/Privacy.tsx`
-- [x] Add privacy policy content
-- [x] Add data collection information
+- [ ] Create `client/src/pages/Privacy.tsx`
+- [ ] Add privacy policy content
+- [ ] Add data collection information
 
 **Fair Play Policy Page**
-- [x] Create `client/src/pages/FairPlay.tsx`
-- [x] Add fair play rules
-- [x] Add prohibited activities
+- [ ] Create `client/src/pages/FairPlay.tsx`
+- [ ] Add fair play rules
+- [ ] Add prohibited activities
 
 **Responsible Gaming Page**
-- [x] Create `client/src/pages/ResponsibleGaming.tsx`
-- [x] Add responsible gaming guidelines
-- [x] Add support resources
+- [ ] Create `client/src/pages/ResponsibleGaming.tsx`
+- [ ] Add responsible gaming guidelines
+- [ ] Add support resources
 
 ### Step 9.2: Final Styling and UI Polish
-- [x] Review entire application for styling consistency
+- [ ] Review entire application for styling consistency
 - [x] Verify Big Amazer color scheme applied everywhere:
   - [ ] Primary orange: #FF6B35
   - [ ] Secondary blue: #004E89
   - [ ] Accent golden: #F7931E
   - [ ] Dark background: #0F1419
   - [ ] Card background: #1A1F2E
-- [x] Check text visibility on all backgrounds
-- [x] Test responsive design on mobile, tablet, desktop
-- [x] Optimize images to WebP format (PNG format acceptable for this platform)
+- [ ] Check text visibility on all backgrounds
+- [ ] Test responsive design on mobile, tablet, desktop
+- [ ] Optimize images to WebP format
 - [x] Verify all links work correctly
 
 ### Step 9.3: Environment Variables Configuration
@@ -514,32 +514,32 @@ All pages follow this structure:
 ## PART 10: TESTING AND DEPLOYMENT
 
 ### Step 10.1: Feature Testing
-- [x] Test user registration with valid/invalid data
-- [x] Test login with correct/incorrect credentials
-- [x] Test logout functionality
+- [ ] Test user registration with valid/invalid data
+- [ ] Test login with correct/incorrect credentials
+- [ ] Test logout functionality
 - [x] Test match display (live, upcoming, completed)
-- [x] Test team creation wizard (all 3 steps)
-- [x] Test contest seeding
-- [x] Test joining contests
-- [x] Test live score page with auto-refresh
-- [x] Test all informational pages load correctly
+- [ ] Test team creation wizard (all 3 steps)
+- [ ] Test contest seeding
+- [ ] Test joining contests
+- [ ] Test live score page with auto-refresh
+- [ ] Test all informational pages load correctly
 
 ### Step 10.2: Database Verification
 - [x] Verify all 5 tables exist
 - [x] Verify all columns have correct types
 - [x] Verify foreign key constraints work
-- [x] Test data insertion and retrieval
+- [ ] Test data insertion and retrieval
 
 ### Step 10.3: Final Verification
-- [x] Run build command: `pnpm build`
+- [ ] Run build command: `pnpm build`
 - [x] Verify no build errors
-- [x] Test production build locally
+- [ ] Test production build locally
 - [x] Verify all features work in production mode
 
 ### Step 10.4: Create Checkpoint
-- [x] Save checkpoint with description: "Complete Big Amazer fantasy cricket platform with all features"
+- [ ] Save checkpoint with description: "Complete Big Amazer fantasy cricket platform with all features"
 - [x] Verify checkpoint saved successfully
-- [x] Guide user to publish via Manus UI
+- [ ] Guide user to publish via Manus UI
 
 ---
 
@@ -569,12 +569,12 @@ All pages follow this structure:
 - [x] Add Home link to navigation bar
 - [x] Add Header and Footer to Login page
 - [x] Add Header and Footer to Register page
-- [x] Fix matches display on Home page - show live, upcoming, completed matches
-- [x] Fix matches display on Matches page - show live, upcoming, completed matches
-- [x] Remove all real money references (₹, prizes, entry fees)
-- [x] Convert to free-to-play educational platform messaging
-- [x] Update contest system to remove entry fees
-- [x] Update all pages to reflect skill-based educational model
+- [ ] Fix matches display on Home page - show live, upcoming, completed matches
+- [ ] Fix matches display on Matches page - show live, upcoming, completed matches
+- [ ] Remove all real money references (₹, prizes, entry fees)
+- [ ] Convert to free-to-play educational platform messaging
+- [ ] Update contest system to remove entry fees
+- [ ] Update all pages to reflect skill-based educational model
 
 ## BRANDING ASSETS
 
@@ -597,60 +597,60 @@ All pages follow this structure:
 ## DETAILED CONTENT FOR INFORMATIONAL PAGES
 
 ### About Us Page
-- [x] Add comprehensive company history and mission
-- [x] Add detailed team information and values
-- [x] Expand company registration details
-- [x] Add platform features overview
-- [x] Add educational platform benefits
+- [ ] Add comprehensive company history and mission
+- [ ] Add detailed team information and values
+- [ ] Expand company registration details
+- [ ] Add platform features overview
+- [ ] Add educational platform benefits
 
 ### How to Play Page
-- [x] Add detailed step-by-step guide with examples
-- [x] Add scoring system explanation
-- [x] Add player roles and positions guide
-- [x] Add captain/vice-captain strategy tips
-- [x] Add contest types detailed breakdown
+- [ ] Add detailed step-by-step guide with examples
+- [ ] Add scoring system explanation
+- [ ] Add player roles and positions guide
+- [ ] Add captain/vice-captain strategy tips
+- [ ] Add contest types detailed breakdown
 
 ### FAQ Page
-- [x] Add comprehensive Q&A covering all features
-- [x] Add account management questions
-- [x] Add team creation FAQs
-- [x] Add contest participation FAQs
-- [x] Add technical support questions
+- [ ] Add comprehensive Q&A covering all features
+- [ ] Add account management questions
+- [ ] Add team creation FAQs
+- [ ] Add contest participation FAQs
+- [ ] Add technical support questions
 
 ### Contact Us Page
-- [x] Add multiple contact methods
-- [x] Add office address with map reference
-- [x] Add business hours
-- [x] Add support email and response time
-- [x] Add social media links
+- [ ] Add multiple contact methods
+- [ ] Add office address with map reference
+- [ ] Add business hours
+- [ ] Add support email and response time
+- [ ] Add social media links
 
 ### Terms of Service
-- [x] Expand eligibility requirements
-- [x] Detail user responsibilities
-- [x] Clarify contest rules and regulations
-- [x] Add dispute resolution process
-- [x] Add account termination policies
+- [ ] Expand eligibility requirements
+- [ ] Detail user responsibilities
+- [ ] Clarify contest rules and regulations
+- [ ] Add dispute resolution process
+- [ ] Add account termination policies
 
 ### Privacy Policy
-- [x] Add data collection details
-- [x] Explain data usage and storage
-- [x] Add cookie policy
-- [x] Detail user rights and data protection
-- [x] Add third-party sharing policies
+- [ ] Add data collection details
+- [ ] Explain data usage and storage
+- [ ] Add cookie policy
+- [ ] Detail user rights and data protection
+- [ ] Add third-party sharing policies
 
 ### Fair Play Policy
-- [x] Detail anti-fraud measures
-- [x] Explain fair play guidelines
-- [x] Add prohibited activities list
-- [x] Detail penalty system
-- [x] Add reporting mechanism
+- [ ] Detail anti-fraud measures
+- [ ] Explain fair play guidelines
+- [ ] Add prohibited activities list
+- [ ] Detail penalty system
+- [ ] Add reporting mechanism
 
 ### Responsible Gaming
-- [x] Add educational gaming guidelines
-- [x] Detail age restrictions
-- [x] Add self-assessment tools
-- [x] Provide support resources
-- [x] Add parental guidance information
+- [ ] Add educational gaming guidelines
+- [ ] Detail age restrictions
+- [ ] Add self-assessment tools
+- [ ] Provide support resources
+- [ ] Add parental guidance information
 
 
 ## DETAILED CONTENT FOR INFORMATIONAL PAGES (COMPLETED)
