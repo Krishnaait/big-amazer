@@ -25,11 +25,15 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo and Brand */}
-          <Link href="/" className="flex items-center space-x-2 cursor-pointer">
-            <div className="text-2xl font-bold">
-              <span className="text-[#FF6B35]">Big Amazer</span>
+          <Link href="/" className="flex items-center space-x-3 cursor-pointer">
+            <img src="/logo.png" alt="Big Amazer" className="h-10 w-10" />
+            <div className="flex flex-col">
+              <div className="text-xl font-bold leading-tight">
+                <span className="text-[#004E89]">Big </span>
+                <span className="text-[#FF6B35]">Amazer</span>
+              </div>
+              <span className="text-xs text-gray-400">Fantasy Sports</span>
             </div>
-            <span className="text-sm text-gray-400 hidden sm:inline">Fantasy Sports</span>
           </Link>
 
           {/* Navigation Links */}

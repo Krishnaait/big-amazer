@@ -16,8 +16,9 @@ export default function Home() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#FF6B35] via-[#F7931E] to-[#004E89] py-20">
-          <div className="container mx-auto px-4 text-center">
+        <section className="relative overflow-hidden py-20" style={{backgroundImage: 'url(/hero-banner.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#004E89]/80 to-[#FF6B35]/80"></div>
+          <div className="container mx-auto px-4 text-center relative z-10">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Big Amazer
             </h1>

@@ -575,3 +575,21 @@ All pages follow this structure:
 - [ ] Convert to free-to-play educational platform messaging
 - [ ] Update contest system to remove entry fees
 - [ ] Update all pages to reflect skill-based educational model
+
+## BRANDING ASSETS
+
+### Logo Design
+- [x] Generate Big Amazer logo with cricket theme
+- [x] Save logo in multiple formats (PNG with transparency)
+- [x] Add logo to project assets folder
+
+### Background Banners
+- [x] Create hero section background banner
+- [x] Design cricket-themed banner with orange/blue colors
+- [x] Save banners to project assets
+
+### Integration
+- [x] Update Header component to use new logo
+- [x] Update Home page hero section with new banner
+- [x] Update favicon with logo
+- [x] Test all branding assets display correctly
