@@ -16,16 +16,16 @@ export default function Home() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-20" style={{backgroundImage: 'url(/hero-banner.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section className="relative overflow-hidden py-12 md:py-20" style={{backgroundImage: 'url(/hero-banner.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
           <div className="absolute inset-0 bg-gradient-to-r from-[#004E89]/80 to-[#FF6B35]/80"></div>
           <div className="container mx-auto px-4 text-center relative z-10">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 md:mb-6">
               Big Amazer
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4 md:mb-8">
               Fantasy Sports Reimagined
             </p>
-            <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-white/80 mb-6 md:mb-10 max-w-2xl mx-auto px-4">
               Create your dream cricket team, join exciting contests, and compete with thousands of players to showcase your cricket knowledge and skills!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -3,10 +3,13 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Header() {
   const [location, setLocation] = useLocation();
   const { user, isAuthenticated } = useAuth();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const logoutMutation = trpc.auth.logout.useMutation({
     onSuccess: () => {
@@ -35,6 +38,14 @@ export default function Header() {
               <span className="text-xs text-gray-400">Fantasy Sports</span>
             </div>
           </Link>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-gray-300 hover:text-[#FF6B35]"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
 
           {/* Navigation Links */}
           <nav className="hidden md:flex items-center space-x-6">
@@ -96,6 +107,56 @@ export default function Header() {
             )}
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t border-gray-700">
+            <nav className="flex flex-col space-y-3 pt-4">
+              <Link
+                href="/"
+                className="text-gray-300 hover:text-[#FF6B35] transition-colors px-2 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/matches"
+                className="text-gray-300 hover:text-[#FF6B35] transition-colors px-2 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Matches
+              </Link>
+              <Link
+                href="/about"
+                className="text-gray-300 hover:text-[#FF6B35] transition-colors px-2 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                href="/how-to-play"
+                className="text-gray-300 hover:text-[#FF6B35] transition-colors px-2 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                How to Play
+              </Link>
+              <Link
+                href="/faq"
+                className="text-gray-300 hover:text-[#FF6B35] transition-colors px-2 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                FAQ
+              </Link>
+              <Link
+                href="/contact"
+                className="text-gray-300 hover:text-[#FF6B35] transition-colors px-2 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
