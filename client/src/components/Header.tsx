@@ -34,6 +34,9 @@ export default function Header() {
 
           {/* Navigation Links */}
           <nav className="hidden md:flex items-center space-x-6">
+            <Link href="/matches" className="text-gray-300 hover:text-[#FF6B35] transition-colors">
+              Matches
+            </Link>
             <Link href="/about" className="text-gray-300 hover:text-[#FF6B35] transition-colors">
               About
             </Link>
