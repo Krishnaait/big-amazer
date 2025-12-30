@@ -705,3 +705,13 @@ All pages follow this structure:
 - [x] Verify match categorization (live, upcoming, completed)
 
 **Resolution:** The implementation was correct. The API currently has 2 live matches, 0 upcoming matches, and 23 completed matches. Both Home and Matches pages now correctly display live matches with animated "LIVE" badges, upcoming matches when available, and completed matches. The categorization logic works based on matchStarted and matchEnded fields from the CricAPI response.
+
+
+## UPCOMING MATCHES API UPDATE
+
+- [x] Research CricAPI endpoints for fetching upcoming matches
+- [x] Check if there's a separate endpoint for scheduled/upcoming matches
+- [x] Update cricketApi.ts to fetch from correct endpoint
+- [ ] Test that upcoming matches display on Home page
+- [ ] Test that upcoming matches display on Matches page
+- [ ] Verify match dates are correctly shown for future matches

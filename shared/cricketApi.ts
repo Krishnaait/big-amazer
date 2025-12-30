@@ -48,11 +48,13 @@ export interface MatchSquad {
 
 /**
  * Fetch all matches from CricAPI
+ * Uses /matches endpoint to get upcoming scheduled matches + live matches
  * Returns matches with 60-second cache
  */
 export async function getMatches(): Promise<Match[]> {
   try {
-    const url = `${BASE_URL}/currentMatches?apikey=${CRIC_API_KEY}&offset=0`;
+    // Use /matches endpoint to get upcoming matches scheduled for coming days
+    const url = `${BASE_URL}/matches?apikey=${CRIC_API_KEY}&offset=0`;
     
     const response = await fetch(url);
 
