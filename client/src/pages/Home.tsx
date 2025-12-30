@@ -213,12 +213,63 @@ export default function Home() {
                   </div>
                 )}
 
+                {/* Completed Matches */}
+                {matchesData?.completed && matchesData.completed.length > 0 && (
+                  <div className="mt-12">
+                    <h2 className="text-3xl font-bold text-white mb-8">Completed Matches</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {matchesData.completed.slice(0, 6).map((match) => (
+                        <div key={match.id} className="bg-[#1A1F2E] border border-gray-700 rounded-lg p-6">
+                          {/* Team Logos */}
+                          {match.teamInfo && match.teamInfo.length >= 2 && (
+                            <div className="flex items-center justify-center gap-4 mb-4">
+                              <div className="flex flex-col items-center">
+                                <img 
+                                  src={match.teamInfo[0].img} 
+                                  alt={match.teamInfo[0].name}
+                                  className="w-12 h-12 object-contain rounded-full bg-white/10 p-1"
+                                  onError={(e) => {
+                                    e.currentTarget.src = '/logo.png';
+                                  }}
+                                />
+                                <span className="text-xs text-gray-400 mt-1">{match.teamInfo[0].shortname}</span>
+                              </div>
+                              <span className="text-gray-500 font-bold">vs</span>
+                              <div className="flex flex-col items-center">
+                                <img 
+                                  src={match.teamInfo[1].img} 
+                                  alt={match.teamInfo[1].name}
+                                  className="w-12 h-12 object-contain rounded-full bg-white/10 p-1"
+                                  onError={(e) => {
+                                    e.currentTarget.src = '/logo.png';
+                                  }}
+                                />
+                                <span className="text-xs text-gray-400 mt-1">{match.teamInfo[1].shortname}</span>
+                              </div>
+                            </div>
+                          )}
+                          
+                          <h3 className="text-white font-semibold mb-2">{match.name}</h3>
+                          <p className="text-gray-400 text-sm mb-2">{match.venue}</p>
+                          <p className="text-green-500 text-sm font-medium mb-4">Completed</p>
+                          <Button size="sm" variant="outline" className="w-full border-gray-600 text-gray-300" asChild>
+                            <Link href={`/matches/${match.id}`}>
+                              View Result
+                            </Link>
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* No Matches */}
                 {(!matchesData?.live || matchesData.live.length === 0) && 
-                 (!matchesData?.upcoming || matchesData.upcoming.length === 0) && (
+                 (!matchesData?.upcoming || matchesData.upcoming.length === 0) && 
+                 (!matchesData?.completed || matchesData.completed.length === 0) && (
                   <div>
                     <h2 className="text-3xl font-bold text-white mb-8">Matches</h2>
-                    <p className="text-gray-400">No live or upcoming matches at the moment. Check back soon!</p>
+                    <p className="text-gray-400">No matches available at the moment. Check back soon!</p>
                   </div>
                 )}
               </>

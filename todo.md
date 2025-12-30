@@ -726,3 +726,13 @@ All pages follow this structure:
 - [ ] Create seed data for upcoming matches as workaround
 - [x] Test live matches display with team logos
 - [ ] Test upcoming matches from seed data
+
+
+## HOMEPAGE MATCHES DISPLAY
+
+- [x] Add Live Matches section to homepage
+- [x] Add Upcoming Matches section to homepage
+- [x] Add Completed Matches section to homepage
+- [x] Display team logos in all match cards
+- [x] Add proper styling and layout for all sections
+- [x] Test all three sections display correctly
