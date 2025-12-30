@@ -736,3 +736,15 @@ All pages follow this structure:
 - [x] Display team logos in all match cards
 - [x] Add proper styling and layout for all sections
 - [x] Test all three sections display correctly
+
+
+## UPCOMING MATCHES INVESTIGATION
+
+- [x] Test CricAPI /currentMatches endpoint for upcoming matches
+- [x] Check match categorization logic (matchStarted/matchEnded fields)
+- [x] Verify upcoming matches are being filtered correctly
+- [x] Fix API to fetch upcoming matches from active series
+- [x] Test homepage display of upcoming matches
+- [x] Add debug logging to Cricket API
+- [x] Fix date parsing for series end dates
+- [x] Verify 62 upcoming matches are being fetched and displayed
