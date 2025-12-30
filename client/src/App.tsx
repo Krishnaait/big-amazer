@@ -18,6 +18,7 @@ import Privacy from "./pages/Privacy";
 import FairPlay from "./pages/FairPlay";
 import ResponsibleGaming from "./pages/ResponsibleGaming";
 import CreateTeam from "./pages/CreateTeam";
+import CreateTeamWizard from "./pages/CreateTeamWizard";
 import Contests from "./pages/Contests";
 import LiveScore from "./pages/LiveScore";
 
@@ -38,6 +39,7 @@ function Router() {
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/fair-play"} component={FairPlay} />      <Route path={" /responsible-gaming"} component={ResponsibleGaming} />
       <Route path="/create-team/:matchId" component={CreateTeam} />
+      <Route path="/create-team-wizard/:matchId" component={CreateTeamWizard} />
       <Route path="/contests/:matchId" component={Contests} />
       <Route path="/live-score/:contestId" component={LiveScore} />
       <Route path={"/ 404"} component={NotFound} />
