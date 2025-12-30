@@ -13,54 +13,55 @@ export default function ResponsibleGaming() {
           <div className="bg-[#1A1F2E] border border-gray-700 rounded-lg p-8 text-gray-300 space-y-6">
             <section>
               <p className="leading-relaxed mb-4">
-                At Big Amazer, we are committed to promoting responsible gaming practices. While fantasy cricket is an entertaining and skill-based activity, we believe it's important to play responsibly and within your means.
+                At Big Amazer, we are committed to promoting responsible and healthy usage of our free educational fantasy cricket platform. While fantasy cricket is an entertaining and skill-based learning activity, we believe it's important to maintain balance and use the platform responsibly.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Play Responsibly</h2>
-              <p className="leading-relaxed mb-2">Responsible gaming means:</p>
+              <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Use Responsibly</h2>
+              <p className="leading-relaxed mb-2">Responsible use of Big Amazer means:</p>
               <ul className="list-disc list-inside space-y-1 ml-4">
-                <li>Playing for entertainment, not as a source of income</li>
-                <li>Setting budgets and sticking to them</li>
-                <li>Not chasing losses</li>
-                <li>Taking regular breaks</li>
-                <li>Maintaining balance with other activities</li>
-                <li>Being aware of the time and money spent</li>
+                <li>Using the platform for learning and entertainment</li>
+                <li>Taking regular breaks from screen time</li>
+                <li>Maintaining balance with other activities and responsibilities</li>
+                <li>Being aware of the time spent on the platform</li>
+                <li>Not letting fantasy cricket interfere with work, studies, or relationships</li>
+                <li>Keeping perspective - it's a free educational game, not a career</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Set Your Limits</h2>
               <p className="leading-relaxed mb-3">
-                We encourage all users to set personal limits before playing:
+                We encourage all users to set personal time limits to maintain healthy usage:
               </p>
               <div className="bg-[#0F1419] border border-gray-700 rounded-lg p-4 space-y-2">
-                <p><strong className="text-white">Daily Limit:</strong> Decide how much you can afford to spend per day</p>
-                <p><strong className="text-white">Weekly Budget:</strong> Set a weekly budget for fantasy cricket</p>
-                <p><strong className="text-white">Time Limit:</strong> Allocate specific time for playing</p>
-                <p><strong className="text-white">Loss Limit:</strong> Decide when to stop if you're losing</p>
+                <p><strong className="text-white">Daily Time Limit:</strong> Decide how much time you can spend per day</p>
+                <p><strong className="text-white">Weekly Time Budget:</strong> Set a weekly time budget for fantasy cricket</p>
+                <p><strong className="text-white">Session Duration:</strong> Take breaks every 30-60 minutes</p>
+                <p><strong className="text-white">Match Limit:</strong> Limit the number of contests you join per day</p>
               </div>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Warning Signs</h2>
-              <p className="leading-relaxed mb-2">Be aware of these warning signs of problem gaming:</p>
+              <p className="leading-relaxed mb-2">Be aware of these warning signs of excessive platform usage:</p>
               <ul className="list-disc list-inside space-y-1 ml-4">
-                <li>Spending more money than you can afford</li>
-                <li>Neglecting work, family, or personal responsibilities</li>
-                <li>Borrowing money to play fantasy cricket</li>
-                <li>Feeling anxious or irritable when not playing</li>
-                <li>Lying about the time or money spent on gaming</li>
-                <li>Trying unsuccessfully to cut back or stop</li>
+                <li>Spending excessive time on the platform daily</li>
+                <li>Neglecting work, studies, family, or personal responsibilities</li>
+                <li>Feeling anxious or irritable when not checking scores or teams</li>
+                <li>Lying about the time spent on fantasy cricket</li>
+                <li>Trying unsuccessfully to cut back or stop using the platform</li>
                 <li>Using fantasy cricket to escape problems or negative feelings</li>
+                <li>Experiencing sleep disruption due to late-night team management</li>
+                <li>Losing interest in other hobbies and activities</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Self-Exclusion</h2>
+              <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Take a Break</h2>
               <p className="leading-relaxed">
-                If you feel you need a break from fantasy cricket, you can request temporary or permanent self-exclusion from Big Amazer. Contact our support team, and we will immediately restrict your account access for the period you specify. During self-exclusion, you will not be able to create teams or join contests.
+                If you feel you need a break from fantasy cricket, you can request temporary or permanent account suspension from Big Amazer. Contact our support team, and we will immediately restrict your account access for the period you specify. During this break, you will not be able to log in, create teams, or join contests. This is completely free and confidential.
               </p>
             </section>
 
@@ -93,29 +94,30 @@ export default function ResponsibleGaming() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Tips for Healthy Gaming</h2>
+              <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Tips for Healthy Usage</h2>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>Set Time Limits:</strong> Use timers or alarms to remind yourself to take breaks</li>
-                <li><strong>Use Only Disposable Income:</strong> Never use money meant for essentials</li>
-                <li><strong>Keep It Fun:</strong> If it stops being enjoyable, take a break</li>
-                <li><strong>Stay Informed:</strong> Understand the odds and how the game works</li>
-                <li><strong>Avoid Emotional Decisions:</strong> Don't play when upset or stressed</li>
-                <li><strong>Balance Your Life:</strong> Maintain other hobbies and social activities</li>
-                <li><strong>Talk About It:</strong> Discuss your gaming with friends or family</li>
+                <li><strong>Prioritize Real Life:</strong> Never let fantasy cricket interfere with work, studies, or relationships</li>
+                <li><strong>Keep It Fun:</strong> If it stops being enjoyable or educational, take a break</li>
+                <li><strong>Stay Informed:</strong> Understand the scoring system and how the game works</li>
+                <li><strong>Avoid Emotional Decisions:</strong> Don't obsess over rankings when upset or stressed</li>
+                <li><strong>Balance Your Life:</strong> Maintain other hobbies, exercise, and social activities</li>
+                <li><strong>Talk About It:</strong> Discuss your usage with friends or family if concerned</li>
+                <li><strong>Use It to Learn:</strong> Focus on improving cricket knowledge, not just winning</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Our Commitment</h2>
               <p className="leading-relaxed">
-                Big Amazer is committed to providing tools and resources to help users play responsibly. We continuously monitor for signs of problem gaming and may reach out to users showing concerning patterns. We also provide educational materials about responsible gaming and maintain partnerships with organizations that support healthy gaming habits.
+                Big Amazer is committed to promoting healthy and balanced usage of our free educational platform. We provide tools and resources to help users maintain responsible habits. We continuously monitor for signs of excessive usage and may reach out to users showing concerning patterns. We also provide educational materials about responsible platform usage and digital wellness.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Need Help?</h2>
               <p className="leading-relaxed">
-                If you have concerns about your gaming habits or need assistance with account restrictions, please contact our support team. We're here to help you enjoy fantasy cricket responsibly.
+                If you have concerns about your usage habits or need assistance with account restrictions or taking a break, please contact our support team. We're here to help you enjoy fantasy cricket as a healthy, educational activity.
               </p>
             </section>
 

@@ -593,3 +593,82 @@ All pages follow this structure:
 - [x] Update Home page hero section with new banner
 - [x] Update favicon with logo
 - [x] Test all branding assets display correctly
+
+## DETAILED CONTENT FOR INFORMATIONAL PAGES
+
+### About Us Page
+- [ ] Add comprehensive company history and mission
+- [ ] Add detailed team information and values
+- [ ] Expand company registration details
+- [ ] Add platform features overview
+- [ ] Add educational platform benefits
+
+### How to Play Page
+- [ ] Add detailed step-by-step guide with examples
+- [ ] Add scoring system explanation
+- [ ] Add player roles and positions guide
+- [ ] Add captain/vice-captain strategy tips
+- [ ] Add contest types detailed breakdown
+
+### FAQ Page
+- [ ] Add comprehensive Q&A covering all features
+- [ ] Add account management questions
+- [ ] Add team creation FAQs
+- [ ] Add contest participation FAQs
+- [ ] Add technical support questions
+
+### Contact Us Page
+- [ ] Add multiple contact methods
+- [ ] Add office address with map reference
+- [ ] Add business hours
+- [ ] Add support email and response time
+- [ ] Add social media links
+
+### Terms of Service
+- [ ] Expand eligibility requirements
+- [ ] Detail user responsibilities
+- [ ] Clarify contest rules and regulations
+- [ ] Add dispute resolution process
+- [ ] Add account termination policies
+
+### Privacy Policy
+- [ ] Add data collection details
+- [ ] Explain data usage and storage
+- [ ] Add cookie policy
+- [ ] Detail user rights and data protection
+- [ ] Add third-party sharing policies
+
+### Fair Play Policy
+- [ ] Detail anti-fraud measures
+- [ ] Explain fair play guidelines
+- [ ] Add prohibited activities list
+- [ ] Detail penalty system
+- [ ] Add reporting mechanism
+
+### Responsible Gaming
+- [ ] Add educational gaming guidelines
+- [ ] Detail age restrictions
+- [ ] Add self-assessment tools
+- [ ] Provide support resources
+- [ ] Add parental guidance information
+
+
+## DETAILED CONTENT FOR INFORMATIONAL PAGES (COMPLETED)
+
+### Main Pages
+- [x] Update About Us page with comprehensive company and mission details
+- [x] Update How to Play page with detailed step-by-step guide
+- [x] Update FAQ page with extensive Q&A covering all topics
+- [x] Update Contact page with complete contact information and support details
+
+### Policy Pages
+- [x] Update Terms of Service with comprehensive legal terms
+- [x] Update Privacy Policy with detailed data protection information
+- [x] Update Fair Play Policy with complete fairness guidelines
+- [x] Update Responsible Gaming with detailed responsible usage guidelines
+
+- [x] Remove all real money references from entire platform
+- [x] Convert to 100% free educational model
+- [x] Update database schema to remove entryFee and prizePool
+- [x] Update all frontend pages to reflect free educational model
+- [x] Update all policy pages to reflect free educational model

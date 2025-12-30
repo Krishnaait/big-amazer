@@ -58,8 +58,8 @@ export default function FairPlay() {
                 <li>Warning and account review</li>
                 <li>Temporary suspension of account</li>
                 <li>Permanent ban from the platform</li>
-                <li>Forfeiture of winnings and prizes</li>
-                <li>Refund of entry fees to affected users</li>
+                <li>Removal from contest leaderboards</li>
+                <li>Deletion of teams and contest entries</li>
                 <li>Legal action in cases of fraud</li>
               </ul>
               <p className="leading-relaxed mt-2">
@@ -80,7 +80,7 @@ export default function FairPlay() {
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Clearly displaying contest rules and scoring systems</li>
                 <li>Providing detailed breakdowns of points calculation</li>
-                <li>Publishing prize distribution before contests begin</li>
+                <li>Publishing complete scoring rules before contests begin</li>
                 <li>Ensuring all users have access to the same information</li>
                 <li>Regularly updating our policies and communicating changes</li>
               </ul>
@@ -96,7 +96,7 @@ export default function FairPlay() {
             <section>
               <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">Contest Integrity</h2>
               <p className="leading-relaxed">
-                Every contest on Big Amazer operates under the same rules for all participants. Prize pools are guaranteed, and winners are determined solely based on their team's performance. We do not favor any user or manipulate contest outcomes.
+                Every contest on Big Amazer operates under the same rules for all participants. Rankings are determined solely based on team performance using our published scoring system. We do not favor any user or manipulate contest outcomes. All contests are free and educational.
               </p>
             </section>
 
