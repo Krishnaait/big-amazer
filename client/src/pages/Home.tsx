@@ -92,30 +92,77 @@ export default function Home() {
         {/* Matches Preview */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-white mb-8">Upcoming Matches</h2>
             {isLoading ? (
-              <p className="text-gray-400">Loading matches...</p>
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-8">Matches</h2>
+                <p className="text-gray-400">Loading matches...</p>
+              </div>
             ) : error ? (
-              <p className="text-red-400">Error loading matches: {error.message}</p>
-            ) : matchesData?.upcoming && matchesData.upcoming.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {matchesData.upcoming.slice(0, 6).map((match) => (
-                  <div key={match.id} className="bg-[#1A1F2E] border border-gray-700 rounded-lg p-6">
-                    <h3 className="text-white font-semibold mb-2">{match.name}</h3>
-                    <p className="text-gray-400 text-sm mb-4">{match.venue}</p>
-                    <p className="text-gray-500 text-xs mb-4">
-                      {new Date(match.dateTimeGMT).toLocaleString()}
-                    </p>
-                    <Button size="sm" className="w-full bg-[#FF6B35] hover:bg-[#ff5722] text-white" asChild>
-                      <Link href={`/matches/${match.id}`}>
-                        Create Team
-                      </Link>
-                    </Button>
-                  </div>
-                ))}
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-8">Matches</h2>
+                <p className="text-red-400">Error loading matches: {error.message}</p>
               </div>
             ) : (
-              <p className="text-gray-400">No upcoming matches at the moment. Check back soon!</p>
+              <>
+                {/* Live Matches */}
+                {matchesData?.live && matchesData.live.length > 0 && (
+                  <div className="mb-12">
+                    <h2 className="text-3xl font-bold text-white mb-8">
+                      🔴 Live Matches
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {matchesData.live.slice(0, 6).map((match) => (
+                        <div key={match.id} className="bg-[#1A1F2E] border-2 border-[#FF6B35] rounded-lg p-6">
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="inline-block w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                            <span className="text-red-500 text-xs font-semibold uppercase">Live</span>
+                          </div>
+                          <h3 className="text-white font-semibold mb-2">{match.name}</h3>
+                          <p className="text-gray-400 text-sm mb-2">{match.venue}</p>
+                          <p className="text-[#FF6B35] text-sm font-medium mb-4">{match.status}</p>
+                          <Button size="sm" className="w-full bg-[#FF6B35] hover:bg-[#ff5722] text-white" asChild>
+                            <Link href={`/matches/${match.id}`}>
+                              View Match
+                            </Link>
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Upcoming Matches */}
+                {matchesData?.upcoming && matchesData.upcoming.length > 0 && (
+                  <div>
+                    <h2 className="text-3xl font-bold text-white mb-8">Upcoming Matches</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {matchesData.upcoming.slice(0, 6).map((match) => (
+                        <div key={match.id} className="bg-[#1A1F2E] border border-gray-700 rounded-lg p-6">
+                          <h3 className="text-white font-semibold mb-2">{match.name}</h3>
+                          <p className="text-gray-400 text-sm mb-4">{match.venue}</p>
+                          <p className="text-gray-500 text-xs mb-4">
+                            {new Date(match.dateTimeGMT).toLocaleString()}
+                          </p>
+                          <Button size="sm" className="w-full bg-[#FF6B35] hover:bg-[#ff5722] text-white" asChild>
+                            <Link href={`/matches/${match.id}`}>
+                              Create Team
+                            </Link>
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* No Matches */}
+                {(!matchesData?.live || matchesData.live.length === 0) && 
+                 (!matchesData?.upcoming || matchesData.upcoming.length === 0) && (
+                  <div>
+                    <h2 className="text-3xl font-bold text-white mb-8">Matches</h2>
+                    <p className="text-gray-400">No live or upcoming matches at the moment. Check back soon!</p>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </section>
