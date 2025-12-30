@@ -1,5 +1,6 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useLocation } from "wouter";
+import { trpc } from "@/lib/trpc";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -8,8 +9,11 @@ import { Trophy, Users, Target } from "lucide-react";
 import { useEffect } from "react";
 
 export default function Dashboard() {
-  const { isAuthenticated, loading } = useAuth();
+  const { isAuthenticated, loading, user } = useAuth();
   const [, setLocation] = useLocation();
+  const { data: userTeams, isLoading: teamsLoading } = trpc.teams.getUserTeams.useQuery(undefined, {
+    enabled: !!user,
+  });
 
   useEffect(() => {
     if (!loading && !isAuthenticated) {
@@ -47,9 +51,9 @@ export default function Dashboard() {
                 <Users className="h-4 w-4 text-[#FF6B35]" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-white">0</div>
+                <div className="text-2xl font-bold text-white">{userTeams?.length || 0}</div>
                 <p className="text-xs text-gray-500 mt-1">
-                  Create your first team
+                  {userTeams && userTeams.length > 0 ? 'Teams created' : 'Create your first team'}
                 </p>
               </CardContent>
             </Card>
@@ -113,9 +117,30 @@ export default function Dashboard() {
               <CardTitle className="text-white">My Teams</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-400 text-center py-8">
-                You haven't created any teams yet. Start by viewing upcoming matches and creating your first team!
-              </p>
+              {teamsLoading ? (
+                <p className="text-gray-400 text-center py-8">Loading teams...</p>
+              ) : userTeams && userTeams.length > 0 ? (
+                <div className="space-y-4">
+                  {userTeams.map((team) => (
+                    <div key={team.id} className="border border-gray-700 rounded-lg p-4 hover:border-[#FF6B35] transition-colors">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h3 className="text-lg font-semibold text-white">{team.name}</h3>
+                          <p className="text-sm text-gray-400">Match ID: {team.matchId}</p>
+                          <p className="text-sm text-gray-400">{team.playerCount} players • {team.totalCreditsUsed} credits used</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-xs text-gray-500">{new Date(team.createdAt).toLocaleDateString()}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-400 text-center py-8">
+                  You haven't created any teams yet. Start by viewing upcoming matches and creating your first team!
+                </p>
+              )}
             </CardContent>
           </Card>
 

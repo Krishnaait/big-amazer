@@ -145,6 +145,32 @@ export const appRouter = router({
 
   // Teams router
   teams: router({
+    getUserTeams: protectedProcedure
+      .query(async ({ ctx }) => {
+        const db = await import("./db").then(d => d.getDb());
+        if (!db) throw new Error("Database not available");
+        
+        const { userTeams, teamPlayers } = await import("../drizzle/schema");
+        const { eq } = await import("drizzle-orm");
+        
+        // Fetch user's teams
+        const teams = await db.select().from(userTeams).where(eq(userTeams.userId, ctx.user.id));
+        
+        // Fetch players for each team
+        const teamsWithPlayers = await Promise.all(
+          teams.map(async (team) => {
+            const players = await db.select().from(teamPlayers).where(eq(teamPlayers.teamId, team.id));
+            return {
+              ...team,
+              playerCount: players.length,
+              players: players.map(p => p.playerId),
+            };
+          })
+        );
+        
+        return teamsWithPlayers;
+      }),
+    
     createTeam: protectedProcedure
       .input(z.object({
         matchId: z.string(),
@@ -335,6 +361,80 @@ export const appRouter = router({
         };
       }),
     
+    calculatePoints: publicProcedure
+      .input(z.object({ matchId: z.string() }))
+      .mutation(async ({ input }) => {
+        const db = await import("./db").then(d => d.getDb());
+        if (!db) throw new Error("Database not available");
+        
+        const { contestEntries, contests, userTeams, teamPlayers } = await import("../drizzle/schema");
+        const { eq } = await import("drizzle-orm");
+        
+        try {
+          // Find all contests for this match
+          const matchContests = await db.select().from(contests).where(eq(contests.matchId, input.matchId));
+          
+          // For each contest, calculate points for all entries
+          for (const contest of matchContests) {
+            const entries = await db.select().from(contestEntries).where(eq(contestEntries.contestId, contest.id));
+            
+            // Calculate points for each entry
+            const updatedEntries = await Promise.all(
+              entries.map(async (entry) => {
+                // Get team details
+                const team = await db.select().from(userTeams).where(eq(userTeams.id, entry.teamId)).limit(1);
+                if (!team.length) return entry;
+                
+                const teamData = team[0];
+                const players = await db.select().from(teamPlayers).where(eq(teamPlayers.teamId, teamData.id));
+                
+                // Calculate points (simplified scoring logic)
+                // In production, fetch actual player stats from CricAPI
+                let totalPoints = 0;
+                
+                for (const player of players) {
+                  // Base points for selection
+                  let playerPoints = 10;
+                  
+                  // Add bonus for captain (2x) and vice-captain (1.5x)
+                  if (player.playerId === teamData.captainId) {
+                    playerPoints *= 2;
+                  } else if (player.playerId === teamData.viceCaptainId) {
+                    playerPoints *= 1.5;
+                  }
+                  
+                  totalPoints += playerPoints;
+                }
+                
+                // Update entry points
+                await db.update(contestEntries)
+                  .set({ points: totalPoints.toString() })
+                  .where(eq(contestEntries.id, entry.id));
+                
+                return { ...entry, points: totalPoints.toString() };
+              })
+            );
+            
+            // Calculate ranks based on points
+            const sortedEntries = updatedEntries.sort((a, b) => parseFloat(b.points || "0") - parseFloat(a.points || "0"));
+            
+            for (let i = 0; i < sortedEntries.length; i++) {
+              await db.update(contestEntries)
+                .set({ rank: i + 1 })
+                .where(eq(contestEntries.id, sortedEntries[i].id));
+            }
+          }
+          
+          return {
+            success: true,
+            message: `Points calculated for ${matchContests.length} contests`,
+          };
+        } catch (error: any) {
+          console.error("Points calculation error:", error);
+          throw new Error(`Failed to calculate points: ${error.message}`);
+        }
+      }),
+    
     syncContests: publicProcedure
       .mutation(async () => {
         const db = await import("./db").then(d => d.getDb());
@@ -348,7 +448,7 @@ export const appRouter = router({
           // Fetch all matches from CricAPI
           const matchesData = await getMatches();
           
-          // Update contest statuses based on match status
+          // Update contest statuses and auto-create contests for new matches
           for (const match of matchesData || []) {
             const matchStatus = match.status?.toLowerCase() || "";
             let contestStatus: "pending" | "live" | "completed" = "pending";
@@ -359,10 +459,47 @@ export const appRouter = router({
               contestStatus = "completed";
             }
             
-            // Update all contests for this match
-            await db.update(contests)
-              .set({ status: contestStatus })
-              .where(eq(contests.matchId, match.id));
+            // Check if contests exist for this match
+            const existingContests = await db.select().from(contests).where(eq(contests.matchId, match.id));
+            
+            // Auto-create default contests for new upcoming matches
+            if (existingContests.length === 0 && contestStatus === "pending") {
+              // Create 3 default contests
+              await db.insert(contests).values([
+                {
+                  matchId: match.id,
+                  name: "Mega Contest",
+                  entryFee: "50",
+                  prizePool: "10000",
+                  maxEntries: 1000,
+                  currentEntries: 0,
+                  status: "pending",
+                },
+                {
+                  matchId: match.id,
+                  name: "Head to Head",
+                  entryFee: "25",
+                  prizePool: "45",
+                  maxEntries: 2,
+                  currentEntries: 0,
+                  status: "pending",
+                },
+                {
+                  matchId: match.id,
+                  name: "Winner Takes All",
+                  entryFee: "100",
+                  prizePool: "900",
+                  maxEntries: 10,
+                  currentEntries: 0,
+                  status: "pending",
+                },
+              ]);
+            } else if (existingContests.length > 0) {
+              // Update existing contests status
+              await db.update(contests)
+                .set({ status: contestStatus })
+                .where(eq(contests.matchId, match.id));
+            }
           }
           
           return {
