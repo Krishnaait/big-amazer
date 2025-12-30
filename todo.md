@@ -564,3 +564,4 @@ All pages follow this structure:
 ## USER REQUESTED CHANGES
 
 - [x] Add Matches link to Header navigation
+- [x] Fix NaN contestId error on LiveScore page - properly parse URL parameters

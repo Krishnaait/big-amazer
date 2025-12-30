@@ -8,14 +8,28 @@ import { Card } from "@/components/ui/card";
 import { Loader2, RefreshCw, Trophy } from "lucide-react";
 
 export default function LiveScore() {
-  const { contestId } = useParams<{ contestId: string }>();
+  const params = useParams<{ id: string }>();
   const [, setLocation] = useLocation();
   const [autoRefresh, setAutoRefresh] = useState(true);
   const [lastUpdated, setLastUpdated] = useState(new Date());
+  const [selectedContestId, setSelectedContestId] = useState<number | null>(null);
+
+  // Get contests for this match
+  const { data: contestsData } = trpc.contests.getContests.useQuery(
+    { matchId: params.id },
+    { enabled: !!params.id }
+  );
+
+  // Auto-select first contest if available
+  useEffect(() => {
+    if (contestsData?.contests && contestsData.contests.length > 0 && !selectedContestId) {
+      setSelectedContestId(contestsData.contests[0].id);
+    }
+  }, [contestsData, selectedContestId]);
 
   const { data: leaderboardData, isLoading, refetch } = trpc.contests.getLeaderboard.useQuery(
-    { contestId: Number(contestId) },
-    { enabled: !!contestId }
+    { contestId: selectedContestId! },
+    { enabled: !!selectedContestId && selectedContestId > 0 }
   );
 
   // Auto-refresh every 30 seconds
@@ -53,13 +67,29 @@ export default function LiveScore() {
       
       <main className="flex-1 py-8">
         <div className="container mx-auto px-4">
-          <div className="mb-6 flex justify-between items-center">
+          <div className="mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
               <h1 className="text-3xl font-bold text-white mb-2">Live Leaderboard</h1>
               <p className="text-gray-400">
                 Last updated: {lastUpdated.toLocaleTimeString()}
               </p>
             </div>
+            
+            {/* Contest Selector */}
+            {contestsData && contestsData.contests && contestsData.contests.length > 1 && (
+              <select
+                value={selectedContestId || ""}
+                onChange={(e) => setSelectedContestId(Number(e.target.value))}
+                className="bg-[#1A1F2E] border border-gray-700 text-white rounded px-4 py-2"
+              >
+                {contestsData.contests.map((contest: any) => (
+                  <option key={contest.id} value={contest.id}>
+                    {contest.name} - ₹{contest.prizePool}
+                  </option>
+                ))}
+              </select>
+            )}
+            
             <div className="flex gap-3">
               <Button
                 variant="outline"
