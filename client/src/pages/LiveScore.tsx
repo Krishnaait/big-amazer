@@ -29,7 +29,10 @@ export default function LiveScore() {
 
   const { data: leaderboardData, isLoading, refetch } = trpc.contests.getLeaderboard.useQuery(
     { contestId: selectedContestId ?? 0 },
-    { enabled: selectedContestId !== null && selectedContestId > 0 }
+    { 
+      enabled: selectedContestId !== null && selectedContestId > 0,
+      retry: false // Don't retry on error
+    }
   );
 
   // Auto-refresh every 30 seconds
@@ -143,8 +146,22 @@ export default function LiveScore() {
             </Card>
           )}
 
-          {/* Leaderboard */}
-          {leaderboardData && leaderboardData.entries && leaderboardData.entries.length > 0 ? (
+          {/* No Contests Available */}
+          {(!contestsData || !contestsData.contests || contestsData.contests.length === 0) ? (
+            <Card className="bg-[#1A1F2E] border-gray-700 p-12 text-center">
+              <Trophy className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-white mb-2">No Contests Available</h3>
+              <p className="text-gray-400 mb-6">
+                There are no contests for this match yet. Contests will be created automatically when the match starts.
+              </p>
+              <Button
+                onClick={() => setLocation("/matches")}
+                className="bg-[#FF6B35] hover:bg-[#ff5722]"
+              >
+                Browse Other Matches
+              </Button>
+            </Card>
+          ) : leaderboardData && leaderboardData.entries && leaderboardData.entries.length > 0 ? (
             <Card className="bg-[#1A1F2E] border-gray-700 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">

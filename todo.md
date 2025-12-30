@@ -672,3 +672,13 @@ All pages follow this structure:
 - [x] Update database schema to remove entryFee and prizePool
 - [x] Update all frontend pages to reflect free educational model
 - [x] Update all policy pages to reflect free educational model
+
+
+## BUG FIXES
+
+### Live Score Page Error
+- [x] Fix "Contest not found" error on /live-score page
+- [x] Make contest query optional when no contests exist
+- [x] Add proper error handling for missing contests
+- [x] Display appropriate message when no contests are available
+- [x] Test live score page with and without contests
