@@ -1,7 +1,8 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, userTeams, teamPlayers, contests, contestEntries } from "../drizzle/schema";
 import { ENV } from './_core/env';
+import * as bcrypt from 'bcrypt';
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -89,4 +90,51 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// Fantasy Cricket Database Helpers
+
+export async function getUserByEmail(email: string) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get user: database not available");
+    return undefined;
+  }
+
+  const result = await db.select().from(users).where(eq(users.email, email)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function createUser(name: string, email: string, password: string) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  const hashedPassword = bcrypt.hashSync(password, 10);
+  
+  const result = await db.insert(users).values({
+    name,
+    email,
+    password: hashedPassword,
+    loginMethod: "credentials",
+  });
+
+  return result;
+}
+
+export async function verifyPassword(plainPassword: string, hashedPassword: string): Promise<boolean> {
+  return bcrypt.compareSync(plainPassword, hashedPassword);
+}
+
+export async function getUserTeams(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return await db.select().from(userTeams).where(eq(userTeams.userId, userId));
+}
+
+export async function getContestsByMatch(matchId: string) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return await db.select().from(contests).where(eq(contests.matchId, matchId));
+}
