@@ -855,3 +855,12 @@ Latest commit: Add Railway database setup and environment variables documentatio
 - [x] Fix environment variable handling for production
 - [x] Test fix and verify production deployment
 - [x] Made Manus OAuth optional - falls back to /login when OAuth vars not configured
+
+
+## GITHUB COMMIT - RAILWAY FIXES
+
+- [ ] Check GitHub connection status
+- [ ] Stage Railway deployment fixes
+- [ ] Commit with descriptive message
+- [ ] Push to GitHub repository
+- [ ] Verify changes on GitHub
