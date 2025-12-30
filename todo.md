@@ -534,3 +534,8 @@ All pages follow this structure:
 - **Brand Colors**: Orange (#FF6B35), Blue (#004E89), Golden (#F7931E)
 - **Theme**: Dark (#0F1419 background)
 
+
+
+## BUG FIXES
+
+- [x] Fix nested anchor tag error on homepage (Link component wrapping anchor tags)

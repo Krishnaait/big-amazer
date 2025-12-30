@@ -29,23 +29,23 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {isAuthenticated ? (
-                <Link href="/dashboard">
-                  <Button size="lg" className="bg-white text-[#FF6B35] hover:bg-gray-100 font-semibold">
+                <Button size="lg" className="bg-white text-[#FF6B35] hover:bg-gray-100 font-semibold" asChild>
+                  <Link href="/dashboard">
                     Go to Dashboard
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               ) : (
                 <>
-                  <Link href="/register">
-                    <Button size="lg" className="bg-white text-[#FF6B35] hover:bg-gray-100 font-semibold">
+                  <Button size="lg" className="bg-white text-[#FF6B35] hover:bg-gray-100 font-semibold" asChild>
+                    <Link href="/register">
                       Get Started
-                    </Button>
-                  </Link>
-                  <Link href="/how-to-play">
-                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                    </Link>
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+                    <Link href="/how-to-play">
                       Learn How to Play
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </>
               )}
             </div>
@@ -101,11 +101,11 @@ export default function Home() {
                     <p className="text-gray-500 text-xs mb-4">
                       {new Date(match.dateTimeGMT).toLocaleString()}
                     </p>
-                    <Link href={`/matches/${match.id}`}>
-                      <Button size="sm" className="w-full bg-[#FF6B35] hover:bg-[#ff5722] text-white">
+                    <Button size="sm" className="w-full bg-[#FF6B35] hover:bg-[#ff5722] text-white" asChild>
+                      <Link href={`/matches/${match.id}`}>
                         Create Team
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
                   </div>
                 ))}
               </div>
