@@ -158,6 +158,35 @@ export default function Matches() {
                           <CardTitle className="text-white text-lg">{match.name}</CardTitle>
                         </CardHeader>
                         <CardContent>
+                          {/* Team Logos */}
+                          {match.teamInfo && match.teamInfo.length >= 2 && (
+                            <div className="flex items-center justify-center gap-4 mb-4">
+                              <div className="flex flex-col items-center">
+                                <img 
+                                  src={match.teamInfo[0].img} 
+                                  alt={match.teamInfo[0].name}
+                                  className="w-12 h-12 object-contain rounded-full bg-white/10 p-1"
+                                  onError={(e) => {
+                                    e.currentTarget.style.display = 'none';
+                                  }}
+                                />
+                                <span className="text-xs text-gray-400 mt-1">{match.teamInfo[0].shortname}</span>
+                              </div>
+                              <span className="text-gray-500 font-bold">vs</span>
+                              <div className="flex flex-col items-center">
+                                <img 
+                                  src={match.teamInfo[1].img} 
+                                  alt={match.teamInfo[1].name}
+                                  className="w-12 h-12 object-contain rounded-full bg-white/10 p-1"
+                                  onError={(e) => {
+                                    e.currentTarget.style.display = 'none';
+                                  }}
+                                />
+                                <span className="text-xs text-gray-400 mt-1">{match.teamInfo[1].shortname}</span>
+                              </div>
+                            </div>
+                          )}
+                          
                           <p className="text-gray-400 text-sm mb-2">{match.venue}</p>
                           <p className="text-gray-500 text-xs mb-2">
                             {new Date(match.dateTimeGMT).toLocaleDateString()}

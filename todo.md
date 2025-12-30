@@ -748,3 +748,10 @@ All pages follow this structure:
 - [x] Add debug logging to Cricket API
 - [x] Fix date parsing for series end dates
 - [x] Verify 62 upcoming matches are being fetched and displayed
+
+
+## COMPLETED MATCHES LOGO FIX
+
+- [x] Add team logos to completed matches cards on Matches page
+- [x] Ensure logos display with same styling as live/upcoming matches
+- [x] Test completed matches display with team logos
