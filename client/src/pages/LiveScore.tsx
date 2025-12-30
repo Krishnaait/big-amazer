@@ -120,8 +120,8 @@ export default function LiveScore() {
                   <p className="text-white text-lg font-bold">{leaderboardData.contest.name}</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm">Prize Pool</p>
-                  <p className="text-green-500 text-lg font-bold">₹{leaderboardData.contest.prizePool}</p>
+                  <p className="text-gray-400 text-sm">Type</p>
+                  <p className="text-green-500 text-lg font-bold">{leaderboardData.contest.contestType}</p>
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Participants</p>

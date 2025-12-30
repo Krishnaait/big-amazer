@@ -37,21 +37,21 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">4. Game of Skill</h2>
+              <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">4. Educational Platform</h2>
               <p className="leading-relaxed">
-                Fantasy cricket on Big Amazer is a game of skill where success depends on players' knowledge, judgment, and attention. It is not a game of chance. Users must use their skill and knowledge to create teams and compete.
+                Big Amazer is a free-to-play educational platform where fantasy cricket is a game of skill. Success depends on players' knowledge, judgment, and attention. Users develop their cricket knowledge and strategic thinking skills through team creation and competition. This is a 100% free educational service with no monetary prizes or entry fees.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">5. Contest Rules</h2>
-              <p className="leading-relaxed mb-2">When participating in contests:</p>
+              <p className="leading-relaxed mb-2">When participating in free educational contests:</p>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Teams must be created before match deadlines</li>
                 <li>No changes allowed after match starts</li>
                 <li>Points are calculated based on actual player performance</li>
-                <li>Prize distribution is final and cannot be contested</li>
-                <li>In case of match cancellation, entry fees will be refunded</li>
+                <li>All contests are free to join with no entry fees</li>
+                <li>Rankings and scores are for educational purposes only</li>
               </ul>
             </section>
 
@@ -68,9 +68,9 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">7. Payments and Withdrawals</h2>
+              <h2 className="text-2xl font-semibold text-[#FF6B35] mb-3">7. Free Service</h2>
               <p className="leading-relaxed">
-                All transactions are processed securely. Winnings can be withdrawn subject to verification requirements and minimum withdrawal limits. Big Amazer reserves the right to withhold payments if fraud or terms violation is suspected.
+                Big Amazer is a completely free educational platform. There are no payments, entry fees, prize money, or withdrawals. All contests are free to join and participate in for educational and skill development purposes only.
               </p>
             </section>
 

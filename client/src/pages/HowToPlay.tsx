@@ -104,7 +104,7 @@ export default function HowToPlay() {
                   <ul className="space-y-2 text-gray-400">
                     <li className="flex items-start">
                       <span className="text-[#F7931E] mr-2">•</span>
-                      <span><strong className="text-white">Mega Contests:</strong> Compete with thousands of players for huge prizes</span>
+                      <span><strong className="text-white">Mega Contests:</strong> Compete with thousands of players to test your skills</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[#F7931E] mr-2">•</span>
@@ -112,7 +112,7 @@ export default function HowToPlay() {
                     </li>
                     <li className="flex items-start">
                       <span className="text-[#F7931E] mr-2">•</span>
-                      <span><strong className="text-white">Winner Takes All:</strong> Small groups where the top scorer wins everything</span>
+                      <span><strong className="text-white">Educational Contests:</strong> Small groups focused on learning and skill development</span>
                     </li>
                   </ul>
                 </div>
@@ -139,9 +139,9 @@ export default function HowToPlay() {
                   7
                 </div>
                 <div>
-                  <h2 className="text-2xl font-semibold text-white mb-3">Win Prizes!</h2>
+                  <h2 className="text-2xl font-semibold text-white mb-3">Learn & Improve!</h2>
                   <p className="text-gray-300 leading-relaxed">
-                    If your team performs well and ranks high in the contest, you win prizes! Winnings are credited to your account and can be withdrawn or used to join more contests.
+                    If your team performs well and ranks high in the contest, you'll see your cricket knowledge and strategic skills improve! Track your progress and learn from each match to become a better fantasy cricket player.
                   </p>
                 </div>
               </div>
@@ -149,7 +149,7 @@ export default function HowToPlay() {
 
             <div className="bg-gradient-to-r from-[#FF6B35] to-[#F7931E] rounded-lg p-6 text-center">
               <h3 className="text-2xl font-bold text-white mb-2">Ready to Play?</h3>
-              <p className="text-white/90 mb-4">Join thousands of cricket fans and start winning today!</p>
+              <p className="text-white/90 mb-4">Join thousands of cricket fans and start learning today - completely FREE!</p>
               <a href="/register" className="inline-block bg-white text-[#FF6B35] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                 Get Started Now
               </a>

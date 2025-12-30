@@ -52,14 +52,13 @@ export type TeamPlayer = typeof teamPlayers.$inferSelect;
 export type InsertTeamPlayer = typeof teamPlayers.$inferInsert;
 
 /**
- * Contests table - stores contest information
+ * Contests table - stores contest information for free educational platform
  */
 export const contests = mysqlTable("contests", {
   id: int("id").autoincrement().primaryKey(),
   matchId: varchar("matchId", { length: 255 }).notNull(),
   name: varchar("name", { length: 255 }).notNull(),
-  entryFee: decimal("entryFee", { precision: 10, scale: 2 }).notNull(),
-  prizePool: decimal("prizePool", { precision: 10, scale: 2 }).notNull(),
+  contestType: varchar("contestType", { length: 100 }).default("educational").notNull(),
   maxEntries: int("maxEntries").notNull(),
   currentEntries: int("currentEntries").default(0).notNull(),
   status: mysqlEnum("status", ["pending", "live", "completed"]).default("pending").notNull(),

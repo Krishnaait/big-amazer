@@ -8,7 +8,7 @@ import { Trophy, Users, Zap } from "lucide-react";
 
 export default function Home() {
   const { isAuthenticated } = useAuth();
-  const { data: matchesData } = trpc.cricket.getMatches.useQuery();
+  const { data: matchesData, isLoading, error } = trpc.cricket.getMatches.useQuery();
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0F1419]">
@@ -25,7 +25,7 @@ export default function Home() {
               Fantasy Sports Reimagined
             </p>
             <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
-              Create your dream cricket team, join exciting contests, and compete with thousands of players for glory and prizes!
+              Create your dream cricket team, join exciting contests, and compete with thousands of players to showcase your cricket knowledge and skills!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {isAuthenticated ? (
@@ -61,18 +61,18 @@ export default function Home() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-[#FF6B35] rounded-full mb-4">
                   <Trophy className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Big Prizes</h3>
+                <h3 className="text-xl font-semibold text-white mb-3">Skill-Based Learning</h3>
                 <p className="text-gray-400">
-                  Compete in contests with massive prize pools and win real rewards
+                  Enhance your cricket knowledge through strategic team building and compete in educational contests
                 </p>
               </div>
               <div className="text-center p-6">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-[#004E89] rounded-full mb-4">
                   <Users className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Join Thousands</h3>
+                <h3 className="text-xl font-semibold text-white mb-3">Free to Play</h3>
                 <p className="text-gray-400">
-                  Play with cricket fans from across the country in various contest formats
+                  100% free educational platform - learn cricket strategy and compete with fans nationwide
                 </p>
               </div>
               <div className="text-center p-6">
@@ -92,7 +92,11 @@ export default function Home() {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-white mb-8">Upcoming Matches</h2>
-            {matchesData?.upcoming && matchesData.upcoming.length > 0 ? (
+            {isLoading ? (
+              <p className="text-gray-400">Loading matches...</p>
+            ) : error ? (
+              <p className="text-red-400">Error loading matches: {error.message}</p>
+            ) : matchesData?.upcoming && matchesData.upcoming.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {matchesData.upcoming.slice(0, 6).map((match) => (
                   <div key={match.id} className="bg-[#1A1F2E] border border-gray-700 rounded-lg p-6">

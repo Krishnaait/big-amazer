@@ -566,3 +566,12 @@ All pages follow this structure:
 - [x] Add Matches link to Header navigation
 - [x] Fix NaN contestId error on LiveScore page - properly parse URL parameters
 - [x] Fix contestId null error - prevent query when contestId is null
+- [x] Add Home link to navigation bar
+- [x] Add Header and Footer to Login page
+- [x] Add Header and Footer to Register page
+- [ ] Fix matches display on Home page - show live, upcoming, completed matches
+- [ ] Fix matches display on Matches page - show live, upcoming, completed matches
+- [ ] Remove all real money references (₹, prizes, entry fees)
+- [ ] Convert to free-to-play educational platform messaging
+- [ ] Update contest system to remove entry fees
+- [ ] Update all pages to reflect skill-based educational model

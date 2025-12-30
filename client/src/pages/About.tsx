@@ -14,7 +14,7 @@ export default function About() {
             <section className="bg-[#1A1F2E] border border-gray-700 rounded-lg p-6">
               <h2 className="text-2xl font-semibold text-[#FF6B35] mb-4">Our Mission</h2>
               <p className="leading-relaxed">
-                Big Amazer is India's premier fantasy cricket platform, dedicated to bringing the thrill of cricket to millions of fans across the country. We believe in creating an engaging, fair, and rewarding experience for every cricket enthusiast who dreams of building their perfect team.
+                Big Amazer is India's premier free-to-play fantasy cricket platform, dedicated to bringing the thrill of cricket to millions of fans across the country. We believe in creating an engaging, fair, and educational experience for every cricket enthusiast who dreams of building their perfect team. Our platform is 100% free and focused on skill development and cricket knowledge.
               </p>
             </section>
 
@@ -27,7 +27,7 @@ export default function About() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#F7931E] mr-2">•</span>
-                  <span>Join various contest formats - from head-to-head battles to mega contests</span>
+                  <span>Join various free contest formats - from head-to-head battles to mega contests</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#F7931E] mr-2">•</span>
@@ -35,7 +35,7 @@ export default function About() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#F7931E] mr-2">•</span>
-                  <span>Exciting prizes and rewards for top performers</span>
+                  <span>Skill-based learning and educational challenges for cricket enthusiasts</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#F7931E] mr-2">•</span>
@@ -72,7 +72,7 @@ export default function About() {
             <section className="bg-[#1A1F2E] border border-gray-700 rounded-lg p-6">
               <h2 className="text-2xl font-semibold text-[#FF6B35] mb-4">Our Commitment</h2>
               <p className="leading-relaxed">
-                We are committed to providing a safe, secure, and entertaining platform for all our users. Our team works tirelessly to ensure fair play, timely payouts, and an exceptional user experience. We believe in responsible gaming and encourage all our users to play within their means.
+                We are committed to providing a safe, secure, and entertaining educational platform for all our users. Our team works tirelessly to ensure fair play and an exceptional user experience. As a completely free platform, we focus on helping users develop their cricket knowledge and strategic thinking skills through fantasy cricket.
               </p>
             </section>
           </div>

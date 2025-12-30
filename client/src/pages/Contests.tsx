@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Loader2, Trophy, Users, DollarSign } from "lucide-react";
+import { Loader2, Trophy, Users, Award } from "lucide-react";
 
 export default function Contests() {
   const { matchId } = useParams<{ matchId: string }>();
@@ -91,12 +91,12 @@ export default function Contests() {
 
                   <div className="space-y-3 mb-6">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-400">Entry Fee</span>
-                      <span className="text-[#F7931E] font-bold">₹{contest.entryFee}</span>
+                      <span className="text-gray-400">Entry</span>
+                      <span className="text-[#F7931E] font-bold">FREE</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-400">Prize Pool</span>
-                      <span className="text-green-500 font-bold">₹{contest.prizePool}</span>
+                      <span className="text-gray-400">Type</span>
+                      <span className="text-green-500 font-bold">Educational</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-400">Status</span>
