@@ -334,6 +334,101 @@ export const appRouter = router({
           entries,
         };
       }),
+    
+    syncContests: publicProcedure
+      .mutation(async () => {
+        const db = await import("./db").then(d => d.getDb());
+        if (!db) throw new Error("Database not available");
+        
+        const { contests } = await import("../drizzle/schema");
+        const { eq } = await import("drizzle-orm");
+        const { getMatches } = await import("../shared/cricketApi");
+        
+        try {
+          // Fetch all matches from CricAPI
+          const matchesData = await getMatches();
+          
+          // Update contest statuses based on match status
+          for (const match of matchesData || []) {
+            const matchStatus = match.status?.toLowerCase() || "";
+            let contestStatus: "pending" | "live" | "completed" = "pending";
+            
+            if (matchStatus.includes("live") || matchStatus.includes("inprogress")) {
+              contestStatus = "live";
+            } else if (matchStatus.includes("complete") || matchStatus.includes("finish")) {
+              contestStatus = "completed";
+            }
+            
+            // Update all contests for this match
+            await db.update(contests)
+              .set({ status: contestStatus })
+              .where(eq(contests.matchId, match.id));
+          }
+          
+          return {
+            success: true,
+            message: "Contests synchronized successfully",
+            matchesProcessed: matchesData?.length || 0,
+          };
+        } catch (error: any) {
+          console.error("Contest sync error:", error);
+          throw new Error(`Failed to sync contests: ${error.message}`);
+        }
+      }),
+    
+    cronSyncContests: publicProcedure
+      .input(z.object({ secret: z.string() }))
+      .mutation(async ({ input }) => {
+        // Validate cron secret
+        const CRON_SECRET = process.env.CRON_SECRET || "default-cron-secret";
+        
+        if (input.secret !== CRON_SECRET) {
+          throw new Error("Unauthorized: Invalid cron secret");
+        }
+        
+        // Call syncContests internally
+        const db = await import("./db").then(d => d.getDb());
+        if (!db) throw new Error("Database not available");
+        
+        const { contests } = await import("../drizzle/schema");
+        const { eq } = await import("drizzle-orm");
+        const { getMatches } = await import("../shared/cricketApi");
+        
+        try {
+          const matchesData = await getMatches();
+          let updated = 0;
+          
+          for (const match of matchesData || []) {
+            const matchStatus = match.status?.toLowerCase() || "";
+            let contestStatus: "pending" | "live" | "completed" = "pending";
+            
+            if (matchStatus.includes("live") || matchStatus.includes("inprogress")) {
+              contestStatus = "live";
+            } else if (matchStatus.includes("complete") || matchStatus.includes("finish")) {
+              contestStatus = "completed";
+            }
+            
+            const result = await db.update(contests)
+              .set({ status: contestStatus })
+              .where(eq(contests.matchId, match.id));
+            
+            updated++;
+          }
+          
+          return {
+            success: true,
+            message: `Cron sync completed: ${updated} matches processed`,
+            timestamp: new Date().toISOString(),
+          };
+        } catch (error: any) {
+          console.error("Cron sync error:", error);
+          return {
+            success: false,
+            message: `Cron sync failed: ${error.message}`,
+            timestamp: new Date().toISOString(),
+          };
+        }
+      }),
   }),
 });
 
