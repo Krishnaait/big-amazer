@@ -715,3 +715,14 @@ All pages follow this structure:
 - [ ] Test that upcoming matches display on Home page
 - [ ] Test that upcoming matches display on Matches page
 - [ ] Verify match dates are correctly shown for future matches
+
+
+## MATCHES AND LOGO FIXES
+
+- [x] Revert cricketApi.ts to use /currentMatches endpoint for live matches
+- [x] Add team logo display in match cards
+- [x] Fix team logo image rendering
+- [x] Add fallback for missing team logos
+- [ ] Create seed data for upcoming matches as workaround
+- [x] Test live matches display with team logos
+- [ ] Test upcoming matches from seed data
