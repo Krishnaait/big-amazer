@@ -859,8 +859,19 @@ Latest commit: Add Railway database setup and environment variables documentatio
 
 ## GITHUB COMMIT - RAILWAY FIXES
 
-- [ ] Check GitHub connection status
-- [ ] Stage Railway deployment fixes
-- [ ] Commit with descriptive message
-- [ ] Push to GitHub repository
-- [ ] Verify changes on GitHub
+- [x] Check GitHub connection status
+- [x] Stage Railway deployment fixes
+- [x] Commit with descriptive message
+- [x] Push to GitHub repository
+- [x] Verify changes on GitHub
+
+
+## OAUTH_SERVER_URL ERROR FIX
+
+- [x] Analyze OAUTH_SERVER_URL missing error in production logs
+- [x] Review PDF guide for OAuth requirements
+- [x] Make OAUTH_SERVER_URL optional with sensible defaults (uses https://api.manus.im)
+- [x] Ensure server starts without errors when OAuth vars missing
+- [x] Test production deployment with fix - Homepage loads perfectly!
+- [x] Cricket API integration working (84 matches loaded)
+- [x] No errors in server logs
