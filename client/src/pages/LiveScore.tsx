@@ -28,8 +28,8 @@ export default function LiveScore() {
   }, [contestsData, selectedContestId]);
 
   const { data: leaderboardData, isLoading, refetch } = trpc.contests.getLeaderboard.useQuery(
-    { contestId: selectedContestId! },
-    { enabled: !!selectedContestId && selectedContestId > 0 }
+    { contestId: selectedContestId ?? 0 },
+    { enabled: selectedContestId !== null && selectedContestId > 0 }
   );
 
   // Auto-refresh every 30 seconds

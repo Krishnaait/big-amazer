@@ -565,3 +565,4 @@ All pages follow this structure:
 
 - [x] Add Matches link to Header navigation
 - [x] Fix NaN contestId error on LiveScore page - properly parse URL parameters
+- [x] Fix contestId null error - prevent query when contestId is null
