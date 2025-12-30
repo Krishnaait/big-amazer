@@ -8,19 +8,19 @@ export default function Terms() {
       
       <main className="flex-1 py-12">
         <div className="container mx-auto px-4 max-w-5xl">
-          <h1 className="text-4xl font-bold text-white mb-4">Terms of Service</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">Terms & Condition</h1>
           <p className="text-gray-300 text-lg mb-2">
             Last Updated: December 30, 2024
           </p>
           <p className="text-gray-400 mb-8">
-            Please read these Terms of Service carefully before using Big Amazer.
+            Please read these Terms & Condition carefully before using Big Amazer.
           </p>
 
           <div className="bg-[#1A1F2E] border border-gray-700 rounded-lg p-8 text-gray-300 space-y-8">
             <section>
               <h2 className="text-2xl font-semibold text-[#FF6B35] mb-4">1. Acceptance of Terms</h2>
               <p className="leading-relaxed mb-3">
-                By accessing, browsing, or using the Big Amazer website and platform ("Service"), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service ("Terms") and our Privacy Policy. These Terms constitute a legally binding agreement between you and BIG AMAZER TEAM (OPC) PRIVATE LIMITED ("Big Amazer", "we", "us", or "our").
+                By accessing, browsing, or using the Big Amazer website and platform ("Service"), you acknowledge that you have read, understood, and agree to be bound by these Terms & Condition ("Terms") and our Privacy Policy. These Terms constitute a legally binding agreement between you and BIG AMAZER TEAM (OPC) PRIVATE LIMITED ("Big Amazer", "we", "us", or "our").
               </p>
               <p className="leading-relaxed">
                 If you do not agree to these Terms, you must not access or use our Service. Your continued use of the Service following any changes to these Terms constitutes your acceptance of such changes.

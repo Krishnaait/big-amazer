@@ -682,3 +682,12 @@ All pages follow this structure:
 - [x] Add proper error handling for missing contests
 - [x] Display appropriate message when no contests are available
 - [x] Test live score page with and without contests
+
+
+## TERMINOLOGY UPDATE
+
+- [x] Change "Terms of Service" to "Terms & Condition" in all files
+- [x] Update Header component navigation link
+- [x] Update Footer component link
+- [x] Update Terms page title and content
+- [x] Update any other references throughout the platform

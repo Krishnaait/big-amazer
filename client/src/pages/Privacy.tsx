@@ -111,7 +111,7 @@ export default function Privacy() {
                     <li>Verify user identity and prevent multiple accounts</li>
                     <li>Detect and prevent fraudulent activities</li>
                     <li>Monitor for security threats and vulnerabilities</li>
-                    <li>Enforce our Terms of Service and Fair Play Policy</li>
+                    <li>Enforce our Terms & Condition and Fair Play Policy</li>
                   </ul>
                 </div>
 
